@@ -4,7 +4,8 @@
   <section>
     <h1>Lessons</h1>
     <ol>
-      <li>listening</li>
+      <li><p>Listening</p></li>
+      <li><p>Your first words</p></li>
     </ol>
 </section>
 
@@ -13,14 +14,24 @@
   <!-- data -->
 
   <h2>All stories</h2>
+  <form action="/" method="get">
     <button type="button">Dutch</button>
     <button type="button">English</button>
+  </form>
 
-<ul>
-    <% stories.forEach(story => { %>
-      <li><%= story.title %></li>
-    <% }) %>
-  </ul>
+  <% if (stories && stories.length > 0) { %>
+    <ul>
+      <% stories.forEach(story => { %>
+        <li><img id="storyImage" src="<%= story.image %>.jpg" 
+          onerror="this.onerror=null;this.src='Placeholder-1.png';">
+            <h3><%= story.title %></h3>
+            <p><%= story.summary %></p>
+        </li>
+      <% }) %>
+    </ul>
+  <% } else { %>
+    <p>No stories available.</p>
+  <% } %>
 
   <button><</button>
   <button>></button>

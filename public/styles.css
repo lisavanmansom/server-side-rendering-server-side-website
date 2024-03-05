@@ -1,0 +1,64 @@
+@font-face {
+  font-family: "Poppins";
+  src: url(/Poppins-Regular.ttf);
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url(/Poppins-SemiBold.ttf);
+  font-weight: 200;
+}
+
+:root {
+  /* colourpalette */
+  /*--------b---w------ */
+  --white: #F5FAFF;
+  --black: #0A0806;
+
+  /*--------bg---gradient------ */
+  --bg-method: background: rgb(20,33,81); background: linear-gradient(0deg, rgba(20,33,81,1) 0%, rgba(71,24,113,1) 100%);
+  --bg-statistics: background: rgb(27,112,112); background: linear-gradient(0deg, rgba(27,112,112,1) 0%, rgba(33,155,155,1) 100%);
+  --bg-testing: background: rgb(27,61,112); background: linear-gradient(0deg, rgba(27,61,112,1) 0%, rgba(33,89,155,1) 100%);
+  --bg-profile: background: rgb(180,87,81); background: linear-gradient(0deg, rgba(180,87,81,1) 0%, rgba(240,119,93,1) 100%);
+
+
+  /*--------menubuttons---colours------ */
+  --menu-1-1: #3F92B6;
+  --menu-1-2: #3D7A95;
+
+  --menu-2-1: #599AE7;
+  --menu-2-2: #4D7EB7;
+
+  --menu-3-1: #954BE2;
+  --menu-3-2: #451ACF;
+
+  --menu-4-1: #06A192;
+  --menu-4-2: #078377;
+
+  --menu-5-1: #FD8C73;
+  --menu-5-2: #EA775E;
+
+  /*--------menubuttons---colours------ */
+  --method-1: #1CB854;
+  --method-2: #37C6AB;
+  --method-3: #059CC0;
+  --method-4: #FF8C59;
+  --method-5: #FFA02E;
+}
+  
+/* Tijdelijk */
+
+.bar {
+  background-color: #0A0806;
+  display: block;
+  height: 3px;
+  margin: 5px 0;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  width: 25px;
+}
+
+body {
+  font-family: "poppins";
+}

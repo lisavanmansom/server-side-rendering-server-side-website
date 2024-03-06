@@ -17,10 +17,10 @@
   --black: #0A0806;
 
   /*--------bg---gradient------ */
-  --bg-method: background: rgb(20,33,81); background: linear-gradient(0deg, rgba(20,33,81,1) 0%, rgba(71,24,113,1) 100%);
-  --bg-statistics: background: rgb(27,112,112); background: linear-gradient(0deg, rgba(27,112,112,1) 0%, rgba(33,155,155,1) 100%);
-  --bg-testing: background: rgb(27,61,112); background: linear-gradient(0deg, rgba(27,61,112,1) 0%, rgba(33,89,155,1) 100%);
-  --bg-profile: background: rgb(180,87,81); background: linear-gradient(0deg, rgba(180,87,81,1) 0%, rgba(240,119,93,1) 100%);
+  --bg-method: rgb(20,33,81); background: linear-gradient(0deg, rgba(20,33,81,1) 0%, rgba(71,24,113,1) 100%);
+  --bg-statistics: rgb(27,112,112); background: linear-gradient(0deg, rgba(27,112,112,1) 0%, rgba(33,155,155,1) 100%);
+  --bg-testing: rgb(27,61,112); background: linear-gradient(0deg, rgba(27,61,112,1) 0%, rgba(33,89,155,1) 100%);
+  --bg-profile: rgb(180,87,81); background: linear-gradient(0deg, rgba(180,87,81,1) 0%, rgba(240,119,93,1) 100%);
 
 
   /*--------menubuttons---colours------ */
@@ -49,8 +49,10 @@
   
 /* Tijdelijk */
 
+* { margin: 0;}
+
 .bar {
-  background-color: #0A0806;
+  background-color: white;
   display: block;
   height: 3px;
   margin: 5px 0;
@@ -61,4 +63,5 @@
 
 body {
   font-family: "poppins";
+  background-color: var(--bg-profile);
 }

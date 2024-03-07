@@ -1,54 +1,145 @@
 <%- include('./partials/head') %>
 <%- include('./partials/navigation', {current: '/'}); %>
 
-<main>
+<main class="lessons">
   <section>
     <h1>Lessons</h1>
     <ol>
-      <li><p>Listening</p></li>
-      <li><p>Your first words</p></li>
+      <li>Listening
+        <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.9583 2.16663C11.9583 4.58287 13.917 6.54163 16.3333 6.54163C16.6785 6.54163 16.9583 6.82145 16.9583 7.16663C16.9583 7.5118 16.6785 7.79163 16.3333 7.79163C14.5663 7.79163 12.9895 6.97683 11.9583 5.70246V15.5C11.9583 17.6861 10.1861 19.4583 7.99996 19.4583C5.81383 19.4583 4.04163 17.6861 4.04163 15.5C4.04163 13.3138 5.81383 11.5416 7.99996 11.5416C9.04764 11.5416 10.0002 11.9486 10.7083 12.6132V2.16663H11.9583ZM10.7083 15.5C10.7083 14.0042 9.49573 12.7916 7.99996 12.7916C6.50419 12.7916 5.29163 14.0042 5.29163 15.5C5.29163 16.9957 6.50419 18.2083 7.99996 18.2083C9.49573 18.2083 10.7083 16.9957 10.7083 15.5Z" fill="white"/>
+        </svg></li>
+      <li>Your first words</li>
     </ol>
 </section>
 
 <section>
   <h2>Own playlist</h2>
-  <!-- data -->
+  <ul><% playlist.forEach(playlist => { %>
+    <li><a>
+        <figure>
+            <img src="https://fdnd-agency.directus.app/assets/<%= playlist.image %>" 
+            onerror="this.onerror=null;this.src='Placeholder-1.png';" alt="playlist">
+
+        <figcaption><%= playlist.title %></figcaption></figure>
+
+        <button aria-label="play">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#F3A22A"/>
+          <rect width="16.8" height="16.8" transform="translate(3.59961 3.6001)" fill="#F3A22A"/>
+          <path d="M17.0874 13.0614C17.7817 12.5242 17.7817 11.476 17.0874 10.9387C14.9891 9.31514 12.6461 8.03543 10.146 7.14749L9.68929 6.98528C8.8155 6.67494 7.89254 7.26613 7.77425 8.16812C7.44374 10.6883 7.44374 13.3119 7.77425 15.832C7.89254 16.734 8.8155 17.3252 9.68929 17.0148L10.146 16.8526C12.6461 15.9647 14.9891 14.685 17.0874 13.0614Z" fill="white"/>
+        </svg></button>
+
+      <p>31 min. 55sec</p>
+
+      </a></li><% }) %>
+    
+      <li>
+          <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="30" width="8" height="68" rx="4" fill="white"/>
+            <rect x="68" y="30" width="8" height="68" rx="4" transform="rotate(90 68 30)" fill="white"/>
+            </svg>                        
+            <h4>Make a playlist !</h4>
+            <p>Add your favourite stories in one playlist</p>
+          </dialog>
+      </li></ul>
 
   <h2>All stories</h2>
-  <form action="/" method="get">
-    <button type="button">Dutch</button>
-    <button type="button">English</button>
+
+  <% language.forEach(language => { %>
+    <form action="/" method="get">
+    <button aria-label="language" type="button">
+        <img src="https://fdnd-agency.directus.app/assets/<%= language.flag %>"
+        onerror="this.onerror=null;this.src='Placeholder-2.png';" alt="language flag">
+        <p><%- language.language %></p>
+    </button>
   </form>
+    <% }) %>
 
   <% if (stories && stories.length > 0) { %>
     <ul>
       <% stories.forEach(story => { %>
-        <li>
+        <li><a>
 
 
         <% if (story.image) { %>
           <img src="https://fdnd-agency.directus.app/assets/<%= story.image %>" 
-          onerror="this.onerror=null;this.src='Placeholder-1.png';">
+          onerror="this.onerror=null;this.src='Placeholder-1.png';" alt="story">
           <% } %>
           
             <h3><%= story.title %></h3>
             <p><%= story.summary %></p>
-        </li>
-      <% }) %>
-    </ul>
+
+            <button aria-label="play">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#F3A22A"/>
+                  <rect width="16.8" height="16.8" transform="translate(3.59961 3.6001)" fill="#F3A22A"/>
+                  <path d="M17.0874 13.0614C17.7817 12.5242 17.7817 11.476 17.0874 10.9387C14.9891 9.31514 12.6461 8.03543 10.146 7.14749L9.68929 6.98528C8.8155 6.67494 7.89254 7.26613 7.77425 8.16812C7.44374 10.6883 7.44374 13.3119 7.77425 15.832C7.89254 16.734 8.8155 17.3252 9.68929 17.0148L10.146 16.8526C12.6461 15.9647 14.9891 14.685 17.0874 13.0614Z" fill="white"/>
+              </svg>  
+          </button>
+
+          <p>3 min. 5sec</p>
+
+          <button aria-label="download story">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.6875 11.1094H12.6914C14.1416 11.1094 15.3281 10.5501 15.3281 9.11602C15.3281 7.6819 13.9307 7.17882 12.7969 7.12266C12.5625 4.87986 10.9248 3.51562 9 3.51562C7.18066 3.51562 6.00891 4.72298 5.625 5.92031C4.04297 6.07061 2.67188 6.86637 2.67188 8.51484C2.67188 10.1633 4.0957 11.1094 5.83594 11.1094H7.3125" stroke="#B0B0B0" stroke-width="0.84375" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M7.3125 12.7994L9 14.4843L10.6875 12.7994" stroke="#B0B0B0" stroke-width="0.84375" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M9 8.15625V14.0633" stroke="#B0B0B0" stroke-width="0.84375" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>                            
+          </button>
+
+          <button aria-label="add to playlist">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="6" r="5.5" stroke="#B0B0B0"/>
+                  <rect x="6.42871" y="3" width="6" height="0.857143" rx="0.428571" transform="rotate(90 6.42871 3)" fill="#B0B0B0"/>
+                  <rect x="3" y="5.57141" width="6" height="0.857143" rx="0.428571" fill="#B0B0B0"/>
+              </svg>
+          </button>
+
+        </a></li><% }) %></ul>
+
   <% } else { %>
     <p>No stories available.</p>
   <% } %>
 
-  <button><</button>
-  <button>></button>
+  <button aria-label="previous"><</button>
+  <button aria-label="next">></button>
   </section>
 
   <section>
   <h2>Liked playlist</h2>
-  <!-- data -->
+  <ul><% playlist.forEach(playlist => { %>
+    <li><a>
+        <figure>
+            <img src="https://fdnd-agency.directus.app/assets/<%= playlist.image %>" 
+            onerror="this.onerror=null;this.src='Placeholder-1.png';" alt="playlist">
+
+            <figcaption><%= playlist.title %></figcaption></figure>
+
+        <button aria-label="play">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#F3A22A"/>
+          <rect width="16.8" height="16.8" transform="translate(3.59961 3.6001)" fill="#F3A22A"/>
+          <path d="M17.0874 13.0614C17.7817 12.5242 17.7817 11.476 17.0874 10.9387C14.9891 9.31514 12.6461 8.03543 10.146 7.14749L9.68929 6.98528C8.8155 6.67494 7.89254 7.26613 7.77425 8.16812C7.44374 10.6883 7.44374 13.3119 7.77425 15.832C7.89254 16.734 8.8155 17.3252 9.68929 17.0148L10.146 16.8526C12.6461 15.9647 14.9891 14.685 17.0874 13.0614Z" fill="white"/>
+        </svg></button>
+
+      <p>31 min. 55sec</p>
+
+      </a></li><% }) %>
   <h2>Suggested playlist</h2>
-  <!-- data -->
+  <ul><% playlist.forEach(playlist => { %>
+    <li><a>
+        <figure>
+            <img src="https://fdnd-agency.directus.app/assets/<%= playlist.image %>" 
+            onerror="this.onerror=null;this.src='Placeholder-1.png';" alt="playlist">
+
+            <figcaption><%= playlist.title %></figcaption></figure>
+
+        <button aria-label="play">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#F3A22A"/>
+            <rect width="16.8" height="16.8" transform="translate(3.59961 3.6001)" fill="#F3A22A"/>
+            <path d="M17.0874 13.0614C17.7817 12.5242 17.7817 11.476 17.0874 10.9387C14.9891 9.31514 12.6461 8.03543 10.146 7.14749L9.68929 6.98528C8.8155 6.67494 7.89254 7.26613 7.77425 8.16812C7.44374 10.6883 7.44374 13.3119 7.77425 15.832C7.89254 16.734 8.8155 17.3252 9.68929 17.0148L10.146 16.8526C12.6461 15.9647 14.9891 14.685 17.0874 13.0614Z" fill="white"/>
+        </svg></button>
+
+      <p>31 min. 55sec</p>
+
+      </a></li><% }) %>
   </section>
 </main>
+
 <%- include('./partials/foot') %>

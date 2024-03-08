@@ -137,6 +137,11 @@ body {
     width: 28px;
   }
 }
+.active {
+  border: 5px solid var(--white);
+  border-radius: 15px;
+  width: 9.5em;
+}
   }
 }
 

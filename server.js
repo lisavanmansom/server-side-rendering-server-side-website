@@ -37,6 +37,7 @@ app.get('/', function(request, response) {
   response.render('index')
 })
 
+// Stap 2
 app.get('/lessons', function(request, response) {
   Promise.all([
   fetchJson('https://fdnd-agency.directus.app/items/tm_story'),

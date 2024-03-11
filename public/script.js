@@ -1,9 +1,13 @@
 let hamburger = document.querySelector('.hamburger')
-let navMenu = document.querySelector('.nav-menu')
+let navMenu = document.querySelector('.navigatie')
 
-hamburger.addEventlistener("click", hamburgertoggle)
+hamburger.addEventListener("click", () => { 
+ navMenu.classList.toggle('nav-active');
+ navMenu.classList.toggle('navigatie');
+ hamburger.classList.toggle('active-bar');
 
-function hamburgertoggle () {
-    hamburger.classList.add('hamburger-button')
-}
+
+});
+
+console.log("test")
 

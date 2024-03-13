@@ -83,9 +83,10 @@ body {
     background-color: var(--black);
     display: flex;
     height: 100%;
+    z-index: 10;
+
     position: absolute; top: -1000px; right: 0; left: 0;
 
-     
     ul{
       display: grid;
       grid-template-columns: auto auto;
@@ -142,6 +143,7 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  z-index: 10;
 
   position: fixed; right: 1.5em; bottom: 2em;
 
@@ -205,6 +207,7 @@ body {
     flex-direction: column;
     overflow-y: hidden;
     width: 100%;
+
     > h1 {
         margin: 2em 0 .75em 0;
     }
@@ -246,7 +249,7 @@ body {
         content: counter(list-counter) "."; /* insert the counter value as content  + add "." after the number */
         counter-increment: list-counter; /* increment the counter value */
       }
-}
+} /* end section 1 */
 
   /* playlist, language, stories section */
   > section:nth-of-type(2) {
@@ -282,7 +285,7 @@ body {
           flex-direction: column;
           justify-content: center;
 
-          .playlist-title {
+        .playlist-title {
             text-align:left ;
             width: 108px;
             height: 49px;
@@ -295,13 +298,13 @@ body {
           text-align: center;
         }
 
-      img {
-        border-radius: var(--radius-2);
-        height: 8.5em;
-        margin: 1em 0 .75em 0;
-        object-fit: cover;
-        width: 8.5em;
-      }
+        img {
+          border-radius: var(--radius-2);
+          height: 8.5em;
+          margin: 1em 0 .75em 0;
+          object-fit: cover;
+          width: 8.5em;
+        }
 
         .play-audio {
           display: flex;
@@ -344,14 +347,14 @@ body {
         }
       }
     }
-    /* langueges */
+    /* languages */
     > form {
       display: flex;
       flex-direction: row;
       gap: 1em;
-
-      width: 28vh;
       max-width: 60rem;
+      width: 28vh;
+      overflow-y: hidden;
 
       > button {
         align-items: center;
@@ -361,7 +364,7 @@ body {
         flex-direction: row;
         justify-content: center;
         padding: .15em .5em;
-
+        /*  language images */
       > img {
           border-radius: var(--radius-3);
           object-fit: cover;
@@ -371,17 +374,170 @@ body {
         }
       }
     }
-
+      /*  all stories list */
     > ul:nth-of-type(2) {
-      background-color: violet;
       display: grid;
       gap: 1.5em;
       grid-template-columns: repeat(1, 1fr);
       grid-template-rows: masonry;
+      list-style: none;
       margin: 1em 0 3em 0;
+
       > li {
-        background-color: #1CB854;
-      }
+        background-color: var(--white);
+        border-radius: var(--radius-2);
+        width: 17.5em;
+        height: 8.5em;
+        position: relative;
+
+        > a {
+          display: flex;
+          flex-direction: row;
+          gap: 1em;
+          margin: .25em 0 0 0;
+        }
+          /* story image */
+           img:nth-of-type(1) {
+            border-radius: var(--radius-2);
+            object-fit: cover;
+            height: 9.5em;
+            width: 6em;
+            margin: .75em 0 0 .5em;
+          }
+          /* language image */
+           img:nth-of-type(2) {
+            border-radius: var(--radius-3);
+            object-fit: cover;
+            height: 1.5em;
+            width: 2.5em;
+
+            position: absolute; top: 1.2em; right: .75em;
+
+          }
+
+          .story-text {
+            display: flex;
+            flex-direction: column;
+            gap: .25em;
+            width: 13em;
+            height: 11em;
+            margin: .5em 0 0 0;
+         }
+        }
+
+        h3, p, a {
+          color: var(--black);
+          
+          h3 {
+            max-width: 300px;
+          }
+
+          p {
+            font-weight: 100;
+            max-width: 170px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+          .sub-buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin: 1em 0 0 0;
+            width: 14em;
+
+            p {
+              margin: .13em 1em 0 0;
+            }
+          } 
+        } 
+      } /* end ul */
+    .tab-buttons {
+      display: flex;
+      flex-direction: row;
+      gap: 2em;
+
+    > button {
+      background-color: var(--menu-3-1);
+      color: var(--white);
+      font-size: 18px;
+      padding: .5em .75em;
+      border-radius: var(--radius-2);
+    }  
+  }    
+} /* end section */
+
+  /* liked playlist + suggested playlists section */
+  > section:nth-of-type(3) {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 3em 0 0 0;
+    overflow-y: hidden;
+    width: 100%;
+
+    h2 {
+      width: 28vh;
+      max-width: 60rem
     }
-  }
-  }
+      /* playlist ul */
+    > ul:nth-of-type(1), ul:nth-of-type(2) {
+      display: grid;
+      gap: 1.5em;
+      height: auto;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: masonry;
+      margin: 1em 0 3em 0;
+
+      > li {
+        background-color: var(--white);
+        border-radius: var(--radius-2);
+        width: 8em;
+        height: 13em;
+        list-style: none;
+
+        > a {
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+        .playlist-title {
+            text-align:left ;
+            width: 108px;
+            height: 49px;
+          }
+        }
+
+        > a, p {
+          color: var(--black);
+          font-weight: 200;
+          text-align: center;
+        }
+
+        img {
+          border-radius: var(--radius-2);
+          height: 8.5em;
+          margin: 1em 0 .75em 0;
+          object-fit: cover;
+          width: 8.5em;
+        }
+
+        .play-audio {
+          display: flex;
+          flex-direction: row;
+          gap: .55em;
+          margin: .25em 0 0 0;
+
+          > p {
+            margin: .35em 0 0 0;
+            font-weight: 100;
+            font-size: 10px;
+            white-space: nowrap;
+          }
+        }
+      }
+    } /* end ul */
+  } /* end section */
+} /* end lessons styling */
+  

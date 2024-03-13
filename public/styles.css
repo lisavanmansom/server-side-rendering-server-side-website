@@ -46,6 +46,11 @@
   --method-3: #059CC0;
   --method-4: #FF8C59;
   --method-5: #FFA02E;
+
+  /*--------border---radius------ */
+  --radius-1: 16px;
+  --radius-2: 8px;
+  --radius-3: 4px;
 }
 
 
@@ -63,6 +68,7 @@ h4, h5, h6 {
 h1  {  font-size: 32px;  }
 h2  {  font-size: 24px;  }
 h3  {  font-size: 18px;  }
+h4  {  font-size: 14px;  }
 p   {  font-size: 12px; color: var(--white); }
 a   {  font-size: 12px; color: var(--white); text-decoration: none; cursor: pointer;}
 
@@ -144,8 +150,8 @@ body {
   display: block; 
   height: 3px;
   margin: 4px 0;
-  transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
   width: 28px;
 }
 }
@@ -154,15 +160,15 @@ body {
 .nav-active {
   position: absolute; top: 0; right: 0; left: 0;
 
-  transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
 }
 
 .navigatie {
   position: absolute; top: -1000px; right: 0; left: 0;
   
-  transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
 }
 
 .hamburger.active-bar .bar:nth-child(2){
@@ -192,33 +198,190 @@ body {
   flex-direction: column;
   overflow-y: hidden;
   width: 100%;
+  /* activity section */
   > section:nth-of-type(1) {
     align-items: center;
-    background-color: var(--menu-3-1);
     display: flex;
     flex-direction: column;
+    overflow-y: hidden;
     width: 100%;
     > h1 {
-        margin: 1em 0 .75em 0;
+        margin: 2em 0 .75em 0;
     }
+
     > ol {
+      counter-reset: list-counter;
       display: flex;
-      flex-direction: row;
-      overflow-y: scroll;
+      flex-wrap: nowrap;
+      gap: 1.5rem;
+      justify-content: flex-start;
+      margin: 1em 0 0 0;
+      overflow: scroll;
 
       > li {
-        padding: 1em;
-        gap: 2em;
+        border-radius: var(--radius-2);
+        color: var(--white);
+        display: flex;
+        padding: .75em 1.5em;
+        text-wrap: nowrap;
+        width: 15em;
+        justify-content: space-around;
+        align-items: center;
       }
 
-
       > li:nth-of-type(1) {
-        background-color: var(--method-1);
+        background-color: #0F672C;
       }  
 
       > li:nth-of-type(2) {
-        background-color: var(--method-3);
+        background-color: #136177;
       } 
       }
-    }
+
+      > ol::-webkit-scrollbar {
+        display: none;
+      }
+
+      > ol li::before {
+        content: counter(list-counter) "."; /* insert the counter value as content  + add "." after the number */
+        counter-increment: list-counter; /* increment the counter value */
+      }
 }
+
+  /* playlist, language, stories section */
+  > section:nth-of-type(2) {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 3em 0 0 0;
+    overflow-y: hidden;
+    width: 100%;
+
+    h2 {
+      width: 28vh;
+      max-width: 60rem
+    }
+      /* playlist ul */
+    > ul:nth-of-type(1) {
+      display: grid;
+      gap: 1.5em;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: masonry;
+      margin: 1em 0 3em 0;
+
+      > li {
+        background-color: var(--white);
+        border-radius: var(--radius-2);
+        width: 8em;
+        height: 13em;
+        list-style: none;
+
+        > a {
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          .playlist-title {
+            text-align:left ;
+            width: 108px;
+            height: 49px;
+          }
+        }
+
+        > a, p {
+          color: var(--black);
+          font-weight: 200;
+          text-align: center;
+        }
+
+      img {
+        border-radius: var(--radius-2);
+        height: 8.5em;
+        margin: 1em 0 .75em 0;
+        object-fit: cover;
+        width: 8.5em;
+      }
+
+        .play-audio {
+          display: flex;
+          flex-direction: row;
+          gap: .55em;
+          margin: .25em 0 0 0;
+
+          > p {
+            margin: .25em 0 0 0;
+            font-weight: 100;
+            font-size: 11px;
+          }
+        }
+      }
+      /* Add playlist list item */
+      > li:nth-last-of-type(1) {
+        align-items: center;
+        background-color: #494375;
+        display: flex;
+        flex-direction: column;
+        gap: .65em;
+        justify-content: center;
+        text-align: center;
+
+        > svg {
+          margin: .5em 0 0 0;
+        }
+        
+        > h4 {
+          color: var(--white);
+          font-weight: 200;
+          width: 115px;
+        }
+
+        > p {
+          color: var(--white);
+          font-weight: 100;
+          width: 110px;
+          font-size: 11px;
+        }
+      }
+    }
+    /* langueges */
+    > form {
+      display: flex;
+      flex-direction: row;
+      gap: 1em;
+
+      width: 28vh;
+      max-width: 60rem;
+
+      > button {
+        align-items: center;
+        background-color: var(--white);
+        border-radius: var(--radius-2);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: .15em .5em;
+
+      > img {
+          border-radius: var(--radius-3);
+          object-fit: cover;
+          height:1em;
+          width: 2em;
+          margin: 0 .5em 0 0;
+        }
+      }
+    }
+
+    > ul:nth-of-type(2) {
+      background-color: violet;
+      display: grid;
+      gap: 1.5em;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: masonry;
+      margin: 1em 0 3em 0;
+      > li {
+        background-color: #1CB854;
+      }
+    }
+  }
+  }

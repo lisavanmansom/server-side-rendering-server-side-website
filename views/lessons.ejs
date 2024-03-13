@@ -17,41 +17,42 @@
   <h2>Own playlist</h2>
   <ul><% playlist.forEach(playlist => { %>
     <li><a>
-        <figure>
-            <img src="https://fdnd-agency.directus.app/assets/<%= playlist.image %>" 
-            onerror="this.onerror=null;this.src='Placeholder-1.png';" alt="playlist">
+        
+          <img class="playlist-img" src="https://fdnd-agency.directus.app/assets/<%= playlist.image %>" width="100" height="100" 
+          onerror="this.onerror=null;this.src='Placeholder-1.png';" alt="playlist">
 
-        <figcaption><%= playlist.title %></figcaption></figure>
+          <div class="playlist-title"><%= playlist.title %></div>
 
+          <div class="play-audio">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#F3A22A"/>
           <rect width="16.8" height="16.8" transform="translate(3.59961 3.6001)" fill="#F3A22A"/>
           <path d="M17.0874 13.0614C17.7817 12.5242 17.7817 11.476 17.0874 10.9387C14.9891 9.31514 12.6461 8.03543 10.146 7.14749L9.68929 6.98528C8.8155 6.67494 7.89254 7.26613 7.77425 8.16812C7.44374 10.6883 7.44374 13.3119 7.77425 15.832C7.89254 16.734 8.8155 17.3252 9.68929 17.0148L10.146 16.8526C12.6461 15.9647 14.9891 14.685 17.0874 13.0614Z" fill="white"/>
         </svg>
 
-      <p>31 min. 55sec</p>
+      <p>31 min. 55sec</p></div>
 
       </a></li><% }) %>
     
-      <li>
+      <li> <!-- popup window needs to be added here  -->
           <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="30" width="8" height="68" rx="4" fill="white"/>
             <rect x="68" y="30" width="8" height="68" rx="4" transform="rotate(90 68 30)" fill="white"/>
             </svg>                        
-            <h4>Make a playlist !</h4>
+            <h4>Make a playlist!</h4>
             <p>Add your favourite stories in one playlist</p>
       </li></ul>
 
   <h2>All stories</h2>
 
+  <form action="/" method="get">
   <% language.forEach(language => { %>
-    <form action="/" method="get">
     <button aria-label="language" type="button">
-        <img src="https://fdnd-agency.directus.app/assets/<%= language.flag %>"
+        <img src="https://fdnd-agency.directus.app/assets/<%= language.flag %>" width="25" height="10"
         onerror="this.onerror=null;this.src='Placeholder-2.png';" alt="language flag">
-        <p><%- language.language %></p>
+        <%- language.language %>
     </button>
-  </form>
     <% }) %>
+  </form>
 
   <% if (stories && stories.length > 0) { %>
     <ul>
@@ -60,19 +61,20 @@
 
 
         <% if (story.image) { %>
-          <img src="https://fdnd-agency.directus.app/assets/<%= story.image %>" 
+          <img src="https://fdnd-agency.directus.app/assets/<%= story.image %>" width="100" height="100"
           onerror="this.onerror=null;this.src='Placeholder-1.png';" alt="story">
           <% } %>
+
+            <img src="https://fdnd-agency.directus.app/assets/<%= language.flag %>" width="25" height="10"
+            onerror="this.onerror=null;this.src='Placeholder-2.png';" alt="language flag">
           
             <h3><%= story.title %></h3>
             <p><%= story.summary %></p>
 
-            <button aria-label="play">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#F3A22A"/>
                   <rect width="16.8" height="16.8" transform="translate(3.59961 3.6001)" fill="#F3A22A"/>
                   <path d="M17.0874 13.0614C17.7817 12.5242 17.7817 11.476 17.0874 10.9387C14.9891 9.31514 12.6461 8.03543 10.146 7.14749L9.68929 6.98528C8.8155 6.67494 7.89254 7.26613 7.77425 8.16812C7.44374 10.6883 7.44374 13.3119 7.77425 15.832C7.89254 16.734 8.8155 17.3252 9.68929 17.0148L10.146 16.8526C12.6461 15.9647 14.9891 14.685 17.0874 13.0614Z" fill="white"/>
               </svg>  
-          </button>
 
           <p>3 min. 5sec</p>
 
@@ -105,34 +107,33 @@
   <ul><% playlist.forEach(playlist => { %>
     <li><a>
         <figure>
-            <img src="https://fdnd-agency.directus.app/assets/<%= playlist.image %>" 
+            <img src="https://fdnd-agency.directus.app/assets/<%= playlist.image %>" width="100" height="100"
             onerror="this.onerror=null;this.src='Placeholder-1.png';" alt="playlist">
 
             <figcaption><%= playlist.title %></figcaption></figure>
 
-        <button aria-label="play">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#F3A22A"/>
           <rect width="16.8" height="16.8" transform="translate(3.59961 3.6001)" fill="#F3A22A"/>
           <path d="M17.0874 13.0614C17.7817 12.5242 17.7817 11.476 17.0874 10.9387C14.9891 9.31514 12.6461 8.03543 10.146 7.14749L9.68929 6.98528C8.8155 6.67494 7.89254 7.26613 7.77425 8.16812C7.44374 10.6883 7.44374 13.3119 7.77425 15.832C7.89254 16.734 8.8155 17.3252 9.68929 17.0148L10.146 16.8526C12.6461 15.9647 14.9891 14.685 17.0874 13.0614Z" fill="white"/>
-        </svg></button>
+        </svg>
 
       <p>31 min. 55sec</p>
 
       </a></li><% }) %>
+
   <h2>Suggested playlist</h2>
   <ul><% playlist.forEach(playlist => { %>
     <li><a>
         <figure>
-            <img src="https://fdnd-agency.directus.app/assets/<%= playlist.image %>" 
+            <img src="https://fdnd-agency.directus.app/assets/<%= playlist.image %>" width="100" height="100"
             onerror="this.onerror=null;this.src='Placeholder-1.png';" alt="playlist">
 
             <figcaption><%= playlist.title %></figcaption></figure>
 
-        <button aria-label="play">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#F3A22A"/>
             <rect width="16.8" height="16.8" transform="translate(3.59961 3.6001)" fill="#F3A22A"/>
             <path d="M17.0874 13.0614C17.7817 12.5242 17.7817 11.476 17.0874 10.9387C14.9891 9.31514 12.6461 8.03543 10.146 7.14749L9.68929 6.98528C8.8155 6.67494 7.89254 7.26613 7.77425 8.16812C7.44374 10.6883 7.44374 13.3119 7.77425 15.832C7.89254 16.734 8.8155 17.3252 9.68929 17.0148L10.146 16.8526C12.6461 15.9647 14.9891 14.685 17.0874 13.0614Z" fill="white"/>
-        </svg></button>
+        </svg>
 
       <p>31 min. 55sec</p>
 

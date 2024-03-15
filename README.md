@@ -24,6 +24,8 @@ Voor deze opdracht heb ik de eerste "lessons" pagina mobile first gebouwd inclus
 ### Visuals
 <img width="300" alt="Scherm­afbeelding 2024-03-13 om 15 24 24" src="https://github.com/lisavanmansom/server-side-rendering-server-side-website/assets/144007419/dbca5952-ed95-49c8-98df-9bd0e2a75c4f">
 
+https://server-side-rendering-server-side-website-zxns.onrender.com
+
 ## Gebruik
 
 <!--Bij Gebruik staat hoe je project er uit ziet, hoe het werkt en wat je er mee kan. -->

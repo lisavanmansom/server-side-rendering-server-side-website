@@ -40,6 +40,7 @@ Voor deze website is gebruik gemaakt van van Node, Express en EJS. Node maakt he
 * Fork deze repository;
 * Clone de repository op uw eigen apparaat;
 * Gebruik een editor naar keuze.
+* Npm install
 
 ## Bronnen
 * https://docs.directus.io/reference/introduction.html
